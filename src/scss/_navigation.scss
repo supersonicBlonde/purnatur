@@ -1,0 +1,117 @@
+/**********************************************
+		STYLING NAVIGATION
+
+		**************************************/
+
+.navbar {
+
+	padding-top: 20px;
+
+	.topNavbar:first-child  {
+		
+		@media(min-width: 992px) {
+			margin-right: 75px;
+		}
+	}
+
+	.topNavbar:last-child  {
+
+		@media(min-width: 992px) {
+			margin-left: 75px;
+		}
+	}
+
+	.menu-item {
+		
+		padding:25px 20px;
+
+		&:first-child {
+			padding-top: 50px;
+
+			@media(min-width: 992px) {
+				padding-top:0;
+			}
+		}
+
+		@media(min-width: 992px) {
+			padding:0 20px;
+		}
+
+		
+
+		
+		a {
+			font-family: $font__primary;
+			font-size: 1.1em;
+			color: $color__body!important;
+			@include animate(all , 320ms);
+			padding: 0!important;
+
+
+			&:hover {
+				font-weight: 700;
+
+				&:after {
+		          opacity: 1;
+		          @include transform(translateY(0));
+		        }
+			}
+
+			&:before {
+			    display: block;
+			    content: attr(title);
+			    font-weight: 700;
+			    height: 0;
+			    overflow: hidden;
+			    visibility: hidden;
+			}
+
+			&:after {
+		        content: "";
+		        display: block;
+		        height:2px;
+		        background: $color__main;
+		        @include animate(all , 320ms);
+		        opacity: 0;
+		        @include transform(translateY(2px));
+	        }
+
+	        @media(min-width: 992px) {
+	        	text-align: center;
+	        }
+		}
+	}
+
+}
+
+.navbar-brand {
+	margin-left:50%;
+	transform: translateX(-50%);
+
+	@media(min-width:992px) {
+ 	 margin-left: 0;
+ 	 transform: none;
+ 	}
+
+}
+
+
+
+
+.topNavbar:first-child {
+	order: 2; 
+
+	@media(min-width:992px) {
+ 	 order: 0;
+ 	}
+}
+
+
+.topNavbar:last-child {
+	order: 3; 
+
+	@media(min-width:992px) {
+ 	 order: 0;
+ 	}
+}
+

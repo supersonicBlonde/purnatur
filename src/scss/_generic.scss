@@ -1,0 +1,20 @@
+/**********************************************
+		BASIC STYLING
+
+		**************************************/
+
+body {
+
+	color: $color__body;
+
+	@media(min-wodth:992px) {
+		body: 16px;
+	}
+}
+ 
+.background-image {
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
