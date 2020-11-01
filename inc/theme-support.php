@@ -17,6 +17,7 @@ add_theme_support('post-thumbnails');
 function quanta_register_nav_menu() {
 	register_nav_menu( 'primary-left' , 'This is the Main Top Menu Left Side' );
 	register_nav_menu( 'primary-right' , 'This is the Main Top Menu Right Side' );
+	register_nav_menu( 'footer' , 'This is the Footer Menu' );
 }
 
 add_action( 'after_setup_theme', 'quanta_register_nav_menu');

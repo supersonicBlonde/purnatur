@@ -1,0 +1,82 @@
+/**********************************************
+		STYLING ELEMENTS
+
+		**************************************/
+
+/* HEADER  */
+
+.header-content-container {
+	h1 {
+	    display: flex;
+	    justify-content: space-around;
+	    align-items: center;
+	}
+}
+
+.section-header {
+
+	.background-image {
+    	min-height: 80vh;
+    	background-position: center 30%;
+    }
+}
+
+.header-content-container {
+
+	.header-content {
+
+    	.--top {
+    		padding: 1.8em;
+		}
+
+        .--bottom {
+            padding: 1.2em;
+        }
+    }
+}
+
+.header-content-container .header-content .--top h1 > span:first-child {
+    color: #089c66;
+    font-weight: 900;
+    font-size: 48px;
+    margin-right: 1rem;
+
+    @media(min-width: 992px) {
+        font-size: 7.2rem;
+        margin-right: 0;
+    }
+}
+
+.header-content-container .header-content .--top h1 > span:last-child {
+    font-weight: 800;
+    line-height: 1;
+    font-size: 33px;
+
+    @media(min-width: 992px) {
+        font-size: 5.4rem;
+    }
+
+    span {
+        display: block;
+        font-size:38px;
+
+         @media(min-width: 992px) {
+            font-size: 6.3rem;
+        }
+    }
+}
+
+
+.header-content-container .header-content h2 {
+    color: white;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    @media (min-width: 992px) {
+        font-size: 1.1rem;
+    }
+}
+
+/********************************************************/
+

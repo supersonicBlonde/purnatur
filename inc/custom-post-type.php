@@ -13,17 +13,20 @@
 
 
 	
-add_action( 'init', 'purenatur_recipe' );
-add_action( 'init', 'purenatur_recipe_tax' );
+add_action( 'init', 'purnatur_recipe' );
+add_action( 'init', 'purnatur_recipe_tax' );
 
-add_action( 'init', 'purenatur_job' );
-add_action( 'init', 'purenatur_job_tax' );
+add_action( 'init', 'purnatur_job' );
+add_action( 'init', 'purnatur_job_tax' );
+
+add_action( 'init', 'purnatur_product' );
+add_action( 'init', 'purnatur_product_tax' );
 
 	
 
 
-/* portfolio CPT */
-function purenatur_recipe() {
+
+function purnatur_recipe() {
 	$labels = array(
 		'name' 				=> 'Recettes',
 		'singular_name' 	=> 'Recette',
@@ -47,7 +50,7 @@ function purenatur_recipe() {
 	
 }
 
-function purenatur_job() {
+function purnatur_job() {
 	$labels = array(
 		'name' 				=> 'Candidatures',
 		'singular_name' 	=> 'Candidature',
@@ -71,7 +74,31 @@ function purenatur_job() {
 	
 }
 
-function purenatur_recipe_tax() {
+function purnatur_product() {
+	$labels = array(
+		'name' 				=> 'Produits',
+		'singular_name' 	=> 'Produit',
+		'menu_name'			=> 'Produits',
+		'name_admin_bar'	=> 'Produit'
+	);
+	
+	$args = array(
+		'labels'			=> $labels,
+		'show_ui'			=> true,
+		'show_in_menu'		=> true,
+		'capability_type'	=> 'post',
+		'hierarchical'		=> true,
+		'has_archive'		=> true,
+		'menu_position'		=> 10,
+		'menu_icon'			=> 'dashicons-cart',
+		'supports'			=> array( 'title', 'author', 'thumbnail' )
+	);
+	
+	register_post_type( 'product', $args );
+	
+}
+
+function purnatur_recipe_tax() {
 	
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
@@ -94,7 +121,7 @@ function purenatur_recipe_tax() {
 }
 
 
-function purenatur_job_tax() {
+function purnatur_job_tax() {
 	
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
@@ -113,4 +140,26 @@ function purenatur_job_tax() {
 	);
 
 	register_taxonomy( 'job-category', array( 'job' ), $args );
+}
+
+
+function purnatur_product_tax() {
+	
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => __( 'Categories' ),
+		'singular_name'     => __( 'Categorie' ),
+		'menu_name'         => __( 'Catégorie'),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'product-category' ),
+	);
+
+	register_taxonomy( 'product-category', array( 'product' ), $args );
 }
